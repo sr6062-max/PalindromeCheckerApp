@@ -1,22 +1,29 @@
-import java.sql.SQLOutput;
+import java.util.Stack;
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
-                String input = "radar";
-                char[] chars = input.toCharArray();
-                int start = 0;
-                int end = chars.length - 1;
-                boolean isPalindrome = true;
-                while (start < end) {
-                    if (chars[start] != chars[end]) {
-                        isPalindrome = false;
-                        break;
-                    }
-                    start++;
-                    end--;
-                }
-                System.out.println("Input text : " + input);
-                System.out.println("Is Palindrome? : " + isPalindrome);
+
+        String input = "noon";
+
+        Stack<Character> stack = new Stack<>();
+
+        // Push characters into stack
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
+
+        boolean isPalindrome = true;
+
+        // Pop and compare
+        for (char c : input.toCharArray()) {
+            if (stack.pop() != c) {
+                isPalindrome = false;
+                break;
             }
         }
+
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
+    }
+}
