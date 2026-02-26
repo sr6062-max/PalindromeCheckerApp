@@ -3,19 +3,14 @@ import java.sql.SQLOutput;
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
-
-        String word = "madam";
-        boolean isPalindrome = true;
-
-        for (int i = 0; i < word.length() / 2; i++) {
-
-            if (word.charAt(i) != word.charAt(word.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
+         String input = "madam";
+                String reversed = "";
+                for (int i = input.length() - 1; i >= 0; i--) {
+                    reversed = reversed + input.charAt(i);
+                }
+                boolean isPalindrome = input.equals(reversed);
+                System.out.println("Original String  : " + input);
+                System.out.println("Reversed String  : " + reversed);
+                System.out.println("Is it a Palindrome? : " + isPalindrome);
             }
         }
-
-        System.out.println("Input text: " + word);
-        System.out.println("Is it a Palindrome? : " + isPalindrome);
-    }
-}
